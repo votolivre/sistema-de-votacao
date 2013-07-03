@@ -1,0 +1,202 @@
+/*
+VotoLivre.org
+Produzido por Elder Martins | eldermartins.com
+
+--
+
+Silence is gold.
+*/
+
+@charset "utf-8";
+
+@font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('fonts/bebasneue-webfont.eot');
+    src: url('fonts/bebasneue-webfont.eot?iefix') format('eot'),
+         url('fonts/bebasneue-webfont.woff') format('woff'),
+         url('fonts/bebasneue-webfont.ttf') format('truetype'),
+         url('fonts/bebasneue-webfont.svg#webfontAuD3rHoJ') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* new */
+#search_indicator {
+	display:none;
+}
+
+/* CSS RESET */
+* { margin:0; padding:0; list-style:none; vertical-align:baseline; font-weight:normal; border:none;}
+
+/* CONFIGURAÃ‡Ã•ES GERAIS */
+body {font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; background-color:#f9f9f1;}
+#conteudo {margin:0 auto; width:820px; padding-bottom:20px;}
+.clear {clear:both;}
+a {text-decoration:none; outline:none;}
+strong {font-weight:bold;}
+
+
+/* TOPO */
+#topo {width:780px; padding:20px 20px; height:80px;}
+	.marca {width:300px; height:60px; float:left;}
+	.menu {margin:0 0 0 100px; height:30px; padding:25px 0 0 7px; width:373px; float:left;}
+		.menu h1 {font:18px 'BebasNeueRegular', sans-serif; color:#444; float:left; margin-top:5px;}
+		.menu h1.ativo {color:#acd373; }
+		
+		.menu h2 {font:16px 'BebasNeueRegular', sans-serif; color:#769f60; float:left;}
+		.menu h2.ativo {color:#c5ed8a;}
+		.menu img {float:left; margin-right:5px;}
+		
+		.menu ul {list-style:none; z-index:100;}
+		.menu ul li.nav {position: relative; float:left; padding:0 10px; height:30px;}
+		.menu ul li.nav:hover {background-color:#acd373;}
+		.menu ul li.nav:hover h1 {color:#FFF;}
+		.menu ul li.nav a {display: block;text-decoration:none;}
+		
+		.menu ul li ul {background-color:#acd373; width:91px; padding:5px;}
+		.menu ul li ul li { border-bottom:1px solid #a3c96b; margin:5px;}
+		.menu ul li ul li.ultimo {border:none;}
+		.menu ul li ul li a {display:block; height:20px;}
+		.menu ul li ul li a:hover h2 {color:#c5ed8a;}
+		
+		.menu li ul {position:absolute;left:0;top:30px;display:none;}
+		li:hover ul, li.over ul { display: block; }
+
+/* CABEÃ‡A */
+#cabeca {width:820px; height:206px; clear:both; background-image:url(imagens/bg_cabeca.gif); background-position:bottom; background-repeat:no-repeat;}
+#cabeca-interna {width:820px; height:170px; clear:both;}
+	.imagem {width:780px; height:170px; background-color:#fff; margin:0 20px; background-image:url(imagens/bg_imagem01.jpg); background-repeat:no-repeat;}
+.imagem-quemsomos {width:780px;height:170px;background-color:#fff;margin:0 20px;background-image:url(imagens/bg_quemsomos.jpg);background-repeat:no-repeat;}
+.imagem-politica {width:780px;height:170px;background-color:#fff;margin:0 20px;margin-top: 0px;margin-right: 20px;margin-bottom: 0px;margin-left: 20px;background-image: url(imagens/bg_politica.jpg);background-repeat: no-repeat;background-repeat-x: no-repeat;background-repeat-y: no-repeat;}
+.imagem-pressrelease {width:780px;height:170px;background-color:#fff;margin:0 20px;background-image:url(imagens/bg_pressrelease.jpg);background-repeat:no-repeat;}
+.imagem-links {width:780px;height:170px;background-color:#fff;margin:0 20px;background-image:url(imagens/bg_links.jpg);background-repeat:no-repeat;}
+.imagem-leimunicipal {width:780px;height:170px;background-color:#fff;margin:0 20px;background-image:url(imagens/bg_leimunicipal.jpg);background-repeat:no-repeat;}
+.imagem-apoio {width:780px;height:170px;background-color:#fff;margin:0 20px;background-image:url(imagens/bg_apoio.jpg);background-repeat:no-repeat;}
+.imagem-validade {width:780px;height:170px;background-color:#fff;margin:0 20px;background-image:url(imagens/bg_validade.jpg);background-repeat:no-repeat;}
+.imagem-faq {width:780px;height:170px;background-color:#fff;margin:0 20px;background-image:url(imagens/bg_faq.jpg);background-repeat:no-repeat;}
+.imagem-faleconosco {width:780px;height:170px;background-color:#fff;margin:0 20px;background-image:url(imagens/bg_faleconosco.jpg);background-repeat:no-repeat;}
+.imagem-downloads {width:780px;height:170px;background-color:#fff;margin:0 20px;background-image:url(imagens/bg_downloads.jpg);background-repeat:no-repeat;}
+.imagem-comoajudar {width:780px;height:170px;background-color:#fff;margin:0 20px;background-image:url(imagens/bg_comoajudar.jpg);background-repeat:no-repeat;}
+.imagem-clipping {width:780px;height:170px;background-color:#fff;margin:0 20px;background-image:url(imagens/bg_clipping.jpg);background-repeat:no-repeat;}
+.imagem-bicicletabranca {width:780px;height:170px;background-color:#fff;margin:0 20px;background-image:url(imagens/bg_bicicleta-branca.jpg);background-repeat:no-repeat;}
+.imagem-movimento {width:780px;height:170px;background-color:#fff;margin:0 20px;background-image:url(imagens/bg_movimento.jpg);background-repeat:no-repeat;}
+
+		.contador {float:right; margin:42px 32px 0 0;}
+			.contador h1 {font:bold 50px Arial, Helvetica, sans-serif; color:#FFF; letter-spacing:17px; margin-right:-15px;}
+			.mascara-contador {width:219px; height:56px; position: absolute; z-index:1; float:right; margin:43px 0 0 540px; background-image:url(imagens/mascara-contador.png);}
+		.voteja {float:right; margin:5px 15px 0 0;}
+	#faixa-twitter {width:900px; min-height:30px; margin:0 10px 0 10px; padding:5px;}
+		#faixa-twitter h3 a {font-family:Verdana, Geneva, sans-serif; font-size:11px; color:#706b48; float:left; margin:6px 0;}
+		#faixa-twitter img {margin:6px 10px 0 5px; float:left;}
+		#faixa-twitter p {font-family:Verdana, Geneva, sans-serif; font-size:9px; color:#fff; margin:6px 0; float:left;}
+		#faixa-twitter p a {color:#063;}
+
+/* WRAPPER */
+#wrapper {width:780px; height:auto; margin:0 auto; background-color:#fff; display:table;}
+
+/* COLUNA ESQUERDA */
+#coluna-esquerda {width:540px; margin:0 10px; float:left; height:auto;}
+	.box-destaque {width:540px; margin:20px 0 10px 0; background-color:#fff;}
+		.box-destaque p {font:11px Verdana, Geneva, sans-serif; color:#abd373; margin: 5px 0 10px 0;}
+		.box-destaque p a {color:#779f60;}
+		.box-destaque p a:hover {color:#2e4f1a;}
+		.box-destaque h1 {font-size:16px; color:#ffffff; background-color:#acd373; padding:5px;}
+	.curtir {margin:0 0 10px 0;}
+	.box-lei {width:540px; height:auto;}
+		.titulo-lei {width:410px; height:23px; background:#f2f2d5 url(imagens/bg_lei.gif) no-repeat left; padding:7px 0 0 130px;}
+			.titulo-lei h1 {font:bold 11px Verdana, Geneva, sans-serif; color:#6a804b;}
+		.descricao-lei {width:535px; height:20px; background-color:#ffffbf; padding:7px 0 0 5px;}
+			.descricao-lei h2 {font:10px Verdana, Geneva, sans-serif; color:#6a804b;}
+			.descricao-lei h2 a {text-decoration: underline; color:#6a804b;}
+		.itens-box {width:540px; height:220px; background-color:#ffffe3; margin:0 0 20px 0; padding:10px 0;}
+			.feat {width:250px; height:auto; float:left; margin:10px;}
+			.feat img {float:left;}
+			.feat h3 {float:left; font:bold 9px Verdana, Geneva, sans-serif; color:#6a804b; margin:5px 5px 0 10px; text-transform:uppercase;}
+			.feat p {font:11px Verdana, Geneva, sans-serif; color:#707070; margin:30px 0 0 0; padding:0 0 20px 25px;}
+			.linha {border-bottom:solid 1px #e6e6e6;}
+
+/* COLUNA DIREITA */
+#coluna-direita {width:220px; float:left; height:auto;}
+	.box {width:220px; height:auto; margin:10px 0;}
+	.box-voteja {width:210px; height:70px; background-image:url(imagens/bg_voteja.gif); padding:40px 0 0 10px;}
+	.box-apoio {width:220px; height:750px;background:#eff4ed url(imagens/bg_apoio.gif) no-repeat bottom; padding:20px 0 0 0;}
+		.box-apoio h4 {font:10px Arial, Helvetica, sans-serif; color:#b9d5aa; text-transform:uppercase;}
+
+/* SIDEBAR ESQUERDA (INTERNAS) */
+#sidebar-esquerda {width:220px; margin:0 20px 0 0; float:left; height:auto; padding-bottom: 10px;}
+	.submenu {background-color:#e6eee3; padding: 20px 10px 20px 30px; width:180px; height:auto;}
+	.submenu h1 {font:16px 'BebasNeueRegular', sans-serif; color:#769f60;}
+	.submenu ul li {font:11px Verdana, Geneva, sans-serif; color:#b0c8a6; margin: 5px 15px; list-style-type:circle; border-top:solid 1px #d9e5d5; padding:5px 0 0 0;}
+	
+	.banners-internas img {margin:10px 0;}
+	
+/* COLUNA INTERNAS (DIREITA) */
+#coluna-internas {width:540px; float:left; height:auto; padding: 10px 0 30px 0;}
+	#coluna-internas h1 {font:22px 'BebasNeueRegular', sans-serif; color:#769f60; padding:10px 0;}
+	#coluna-internas p {font:12px Verdana, Geneva, sans-serif; color:#959595; margin:0 30px 10px 0; line-height:18px;}
+	#coluna-internas p.contato {color:#779f60; margin:0 0 5px 0;}
+	#coluna-internas a {color:#769f60;}
+
+/* RODAPÃ‰ */
+#rodape {clear:both; background:#769f60 url(imagens/bg_rodape.gif) repeat-x; width:720px; height:auto; margin:0 20px; padding:40px 10px 20px 50px;}
+	.mapa-links {width:90px; height:auto; float:left; margin:0 10px;}
+		.mapa-links h1 {font:16px 'BebasNeueRegular', sans-serif; color:#fff; margin-bottom:10px;}
+		.mapa-links p, .mapa-links a {font: 10px Verdana, Geneva, sans-serif; color:#c9d7c2; border-bottom:1px solid #718964; padding-bottom:5px; margin-top:5px;}
+		.mapa-links a:hover { color:#fff;}
+		.mapa-links p.ultimo, .mapa-links p.ultimo a {border:none;}
+	.midia-social {width:250px; height:20px; float:right;}
+		.midia-social h1 {font:16px 'BebasNeueRegular', sans-serif; color:#fff; margin-bottom:10px;}
+		.midia-social img {margin-right:2px;}
+		.midia-social p, .midia-social a {font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#b9d5aa; margin-top:20px;}
+		.midia-social a:hover {color:#fff;}
+
+/* CRÃ‰DITOS */
+#creditos {background-color:#6a8e56; width:760px; height:25px; margin:0 20px; padding:15px 0 0 20px;}
+	#creditos h4 {font-family:Arial, Helvetica, sans-serif; font-size:9px; color:#b9d5aa;}
+	
+/* CADASTRO */
+#cadastro_01 {background-image:url(imagens/bg_cadastro.jpg); background-repeat:no-repeat; width:550px; height:332px; padding:50px 40px; margin:0;}
+	.form_1 {width:360px; height:23px; background-color:#FFF; border:solid 1px #cfe9e2; font:12px Arial, Helvetica, sans-serif; color:#798e94; padding:7px 10px 0 110px; margin-bottom:15px;}
+	.form_2  {width:179px; height:23px; background-color:#FFF;border:solid 1px #cfe9e2; font:12px Arial, Helvetica, sans-serif; color:#798e94; padding:7px 10px 0 45px; margin-bottom:15px; float:left;}
+	.form_2nasc  {width:94px; height:23px; background-color:#FFF;border:solid 1px #cfe9e2; font:12px Arial, Helvetica, sans-serif; color:#798e94; padding:7px 10px 0 130px; margin-bottom:15px; float:left;}
+	.form_2titulo  {width:124px; height:23px; background-color:#FFF;border:solid 1px #cfe9e2; font:12px Arial, Helvetica, sans-serif; color:#798e94; padding:7px 10px 0 100px; margin-bottom:15px; float:left;}
+	.form_2email2  {width:214px; height:23px; background-color:#FFF;border:solid 1px #cfe9e2; font:12px Arial, Helvetica, sans-serif; color:#798e94; padding:7px 10px 0 10px; margin-bottom:15px; float:left;}
+	.form_2email  {width:174px; height:23px; background-color:#FFF;border:solid 1px #cfe9e2; font:12px Arial, Helvetica, sans-serif; color:#798e94; padding:7px 10px 0 50px; margin-bottom:15px; float:left;}
+	.form_2cidade  {width:164px; height:23px; background-color:#FFF;border:solid 1px #cfe9e2; font:12px Arial, Helvetica, sans-serif; color:#798e94; padding:7px 10px 0 60px; margin-bottom:15px; float:left;}
+	.form_2comp  {width:128px; height:23px; background-color:#FFF;border:solid 1px #cfe9e2; font:12px Arial, Helvetica, sans-serif; color:#798e94; padding:7px 10px 0 96px; margin-bottom:15px; float:left;}
+	.form_esq {margin-right:10px;}
+	.form_3  {width:294px; height:23px;background-color:#FFF; border:solid 1px #cfe9e2; font:12px Arial, Helvetica, sans-serif; color:#798e94; padding:7px 10px 0 70px; margin-bottom:15px; float:left;}
+	.form_4  {width:54px; height:23px; background-color:#FFF; border:solid 1px #cfe9e2; font:12px Arial, Helvetica, sans-serif; color:#798e94; padding:7px 10px 0 30px; margin-bottom:15px; float:left;}
+	.form_5  {width:135px; height:23px; background-color:#FFF; border:solid 1px #cfe9e2; font:12px Arial, Helvetica, sans-serif; color:#798e94; padding:7px 10px; margin-bottom:15px; float:left;}
+	.form_5digite  {width:30px; height:23px; background-color:#FFF; border:solid 1px #cfe9e2; font:12px Arial, Helvetica, sans-serif; color:#798e94; padding:7px 10px 0 115px; margin-bottom:15px; float:left;}
+	.form_botao {width:152px; height:35px; background-image:url(imagens/bt_continuar.png); cursor:pointer; float:right; margin-right:70px;}
+	.form_botao2 {width:200px; height:34px; background-image:url(imagens/bt_votar.png); cursor:pointer; float:right; margin-right:70px;}
+	.form_select  {width:214px; height:30px; background-color:#FFF; border:solid 1px #cfe9e2; font:12px Arial, Helvetica, sans-serif; color:#798e94; padding:0 0 0 10px; margin-bottom:15px; float:left;}
+	p.form {font:12px Arial, Helvetica, sans-serif; color:#96a8a5; float:left; padding-top:5px;}
+	p.form a {text-decoration:none; color:#96a8a5;}
+	.form_check {float:left; margin:10px 10px 0 0;}
+	
+	.form_contato {width:500px; height:30px; background-color:#FFF; border:solid 1px #cfe9e2; font:12px Arial, Helvetica, sans-serif; color:#798e94; padding:0 5px 0 5px; margin-bottom:5px;}
+	.form_contato2 {width:500px; height:100px; background-color:#FFF; border:solid 1px #cfe9e2; font:12px Arial, Helvetica, sans-serif; color:#798e94; padding:5px; margin-bottom:5px;}
+	.bt_contato {width:105px; height:35px; background-image:url(imagens/bt_enviar.png); cursor:pointer; float:right; margin:10px 30px 10px 0;}
+		
+	.erro {position:absolute; margin:190px 0 0 0; z-index:999; width:300px; height:20px; background-color:#ffe288; border:solid 1px #ffc100; padding:5px; display:none;}
+	.erro p {font:10px Arial, Helvetica, sans-serif; color:#ff6425; float:left; margin:3px 5px;}
+	.erro img {float:right; margin:5px;}
+	
+	.erro2 {position:absolute; margin:1px 0 0 0; z-index:999; width:260px; height:21px; background-color:#ffe288; border:solid 1px #ffc100; padding:5px; display:none;}
+	.erro2 p {font:10px Arial, Helvetica, sans-serif; color:#ff6425; float:left; margin:3px 5px;}
+	.erro2 img {float:right; margin:5px;}
+	
+	h1.confirma_voto {font:26px 'BebasNeueRegular', sans-serif; color:#3f6055; margin:70px 0 30px 60px;}
+	p.confirma_voto {font:12px Arial, Helvetica, sans-serif; color:#96a8a5; margin:10px 0; text-align:center; float:left;}
+	
+	.right {float:right;}
+	
+	#passos {width: 540px; height: 30px; background-color: #ACD373; border-bottom:1px dashed #FFF;}
+	#passos-ultima {width: 540px; height: 30px; background-color: #ACD373; margin-bottom:30px;}
+		#passos p, #passos-ultima p {font:14px Verdana, Geneva, sans-serif; color:#FFF; padding:6px 0 0 10px; float:left;}
+		#passos img, #passos-ultima img {float:left;}
+	
+	

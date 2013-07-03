@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="estilo.css" />
+
+<title>VotoLivre.org | A democracia exercida de forma livre e direta.</title>
+<!-- for ajax -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
+<script src="script_u.js" type="text/javascript"></script>
+<script>
+function clearText(field){
+    if (field.defaultValue == field.value) field.value = '';
+    else if (field.value == '') field.value = field.defaultValue;
+
+}
+</script>
+
+<script> 
+ 
+function mascara(o,f){
+    v_obj=o
+    v_fun=f
+    setTimeout("execmascara()",1)
+}
+ 
+function execmascara(){
+    v_obj.value=v_fun(v_obj.value)
+}
+ 
+function leech(v){
+    v=v.replace(/o/gi,"0")
+    v=v.replace(/i/gi,"1")
+    v=v.replace(/z/gi,"2")
+    v=v.replace(/e/gi,"3")
+    v=v.replace(/a/gi,"4")
+    v=v.replace(/s/gi,"5")
+    v=v.replace(/t/gi,"7")
+    return v
+}
+ 
+function soNumeros(v){
+    return v.replace(/\D/g,"")
+}
+ 
+function telefone(v){
+    v=v.replace(/\D/g,"")                 //Remove tudo o que n&atilde;o &eacute; d&iacute;gito
+    v=v.replace(/^(\d\d)(\d)/g,"($1) $2") //Coloca par&ecirc;nteses em volta dos dois primeiros d&iacute;gitos
+    v=v.replace(/(\d{4})(\d)/,"$1-$2")    //Coloca h&iacute;fen entre o quarto e o quinto d&iacute;gitos
+    return v
+}
+ 
+function validarcpf(v){
+    v=v.replace(/\D/g,"")                    //Remove tudo o que n&atilde;o &eacute; d&iacute;gito
+    v=v.replace(/(\d{3})(\d)/,"$1.$2")       //Coloca um ponto entre o terceiro e o quarto d&iacute;gitos
+    v=v.replace(/(\d{3})(\d)/,"$1.$2")       //Coloca um ponto entre o terceiro e o quarto d&iacute;gitos
+                                             //de novo (para o segundo bloco de n&uacute;meros)
+    v=v.replace(/(\d{3})(\d{1,2})$/,"$1-$2") //Coloca um h&iacute;fen entre o terceiro e o quarto d&iacute;gitos
+    return v
+}
+ 
+function validarcep(v){
+    v=v.replace(/\D/g,"")                //Remove tudo o que n&atilde;o &eacute; d&iacute;gito
+    v=v.replace(/^(\d{5})(\d)/,"$1-$2") //Esse &eacute; t&atilde;o f&aacute;cil que n&atilde;o merece explica&ccedil;Ãµes
+    return v
+}
+ 
+function cnpj(v){
+    v=v.replace(/\D/g,"")                           //Remove tudo o que n&atilde;o &eacute; d&iacute;gito
+    v=v.replace(/^(\d{2})(\d)/,"$1.$2")             //Coloca ponto entre o segundo e o terceiro d&iacute;gitos
+    v=v.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3") //Coloca ponto entre o quinto e o sexto d&iacute;gitos
+    v=v.replace(/\.(\d{3})(\d)/,".$1/$2")           //Coloca uma barra entre o oitavo e o nono d&iacute;gitos
+    v=v.replace(/(\d{4})(\d)/,"$1-$2")              //Coloca um h&iacute;fen depois do bloco de quatro d&iacute;gitos
+    return v
+}
+ 
+function romanos(v){
+    v=v.toUpperCase()             //Mai&uacute;sculas
+    v=v.replace(/[^IVXLCDM]/g,"") //Remove tudo o que n&atilde;o for I, V, X, L, C, D ou M
+    //Essa &eacute; complicada! Copiei daqui: https://www.diveintopython.org/refactoring/refactoring.html
+    while(v.replace(/^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/,"")!="")
+        v=v.replace(/.$/,"")
+    return v
+}
+ 
+function site(v){
+    //Esse sem comentarios para que voc&ecirc; entenda sozinho ;-)
+    v=v.replace(/^https:\/\/?/,"")
+    dominio=v
+    caminho=""
+    if(v.indexOf("/")>-1)
+        dominio=v.split("/")[0]
+        caminho=v.replace(/[^\/]*/,"")
+    dominio=dominio.replace(/[^\w\.\+-:@]/g,"")
+    caminho=caminho.replace(/[^\w\d\+-@:\?&=%\(\)\.]/g,"")
+    caminho=caminho.replace(/([\?&])=/,"$1")
+    if(caminho!="")dominio=dominio.replace(/\.+$/,"")
+    v="https://"+dominio+caminho
+    return v
+}
+ 
+</script> 
+
+</head>
+
+<body>
+<div id="cadastro_01">
+
+<div id="search_indicator" style="position:absolute;top:177px;left:220px;"><img src="https://www.votolivre.org/votolivre/novosite/imagens/loader1.gif" alt="carregando" /></div>
+
+<form id="form_um" method="post">
+<input type="text" name="nome" class="form_1" value="" onFocus="clearText(this)" onBlur="clearText(this)" style="background-image: url(imagens/nome_bg.gif); background-repeat:no-repeat; background-position: 10px 10px;" maxlength="50" id="form_nome" />
+
+<input type="text" name="cpf" class="form_2 form_esq" value="" onkeypress="mascara(this,validarcpf)" style="background-image: url(imagens/cpf_bg.gif); background-repeat:no-repeat; background-position: 10px 10px;" maxlength="14" id="form_cpf"/>
+
+<input type="text" name="cep" class="form_2" value="" onkeypress="mascara(this,validarcep)" style="background-image: url(imagens/cep_bg.gif); background-repeat:no-repeat; background-position: 10px 10px;" maxlength="9" id="form_cep" />
+
+<input type="text" name="endereco" class="form_3 form_esq" value="" onFocus="clearText(this)" onBlur="clearText(this)" style="background-image: url(imagens/endereco_bg.gif); background-repeat:no-repeat; background-position: 10px 10px;" maxlength="50" id="form_endereco" />
+
+<input type="text" name="end_numero" class="form_4" value="" onkeypress="mascara(this,soNumeros)" style="background-image: url(imagens/numero_bg.gif); background-repeat:no-repeat; background-position: 10px 10px;" maxlength="7" id="form_numero" />
+
+<input type="text" name="end_complemento" class="form_2comp form_esq" value="" onFocus="clearText(this)" onBlur="clearText(this)" style="background-image: url(imagens/complemento_bg.gif); background-repeat:no-repeat; background-position: 10px 10px;" maxlength="19" id="form_complemento" />
+
+<input type="text" name="cidade" class="form_2cidade" value="Curitiba *" onBlur="value='Curitiba *'" style="background-image: url(imagens/cidade_bg.gif); background-repeat:no-repeat; background-position: 10px 10px;" maxlength="35" id="form_cidade" />
+
+<input type="text" name="email" class="form_2email form_esq" value="" onFocus="clearText(this)" onBlur="clearText(this)" style="background-image: url(imagens/email_bg.gif); background-repeat:no-repeat; background-position: 10px 10px;" maxlength="50" id="form_email" />
+
+<input type="text" name="email_novamente" class="form_2email2" value="Email (digite novamente)" onFocus="clearText(this)" onBlur="clearText(this)" maxlength="50" id="form_email_novamente" />
+
+
+<!-- ########################### ERROS DIV OCULTA ########################### -->
+
+<!-- retorno (ERRO CPF) -->
+<div class="erro" id="mostrar_isto">
+</div>
+
+<!-- ERRO CEP 
+<div class="erro" id="errocep">
+<p>Desculpe, o <strong>CEP</strong> digitado parece não existir.</p>
+<a href="#" onclick="document.getElementById('errocep').style.display='none';"><img src="imagens/fechardiv.gif" /></a>
+</div>
+
+<!-- ERRO EMAIL
+<div class="erro" id="erroemail">
+<p>Por favor, digite um  <strong>Email</strong> válido para prosseguir.</p>
+<a href="#" onclick="document.getElementById('erroemail').style.display='none';"><img src="imagens/fechardiv.gif" /></a>
+</div>
+-->
+
+<!-- ########################### -->
+
+<p class="form"><span style="color:#fbaf5d">*</span> Por se tratar de uma lei municipal, somente poder&atilde;o <br/>  votar eleitores da cidade de <u>Curitiba</u></p>
+
+<!-- Bot&atilde;o original que leva para a segunda parte do cadastro: -->
+<a href="#"><input type="submit" class="form_botao" value=""  /></a>
+
+<!-- ########################### BOTOES VALIDACAO EXEMPLO ########################### -->
+
+<!-- Bot&atilde;o com exemplo de erro no CPF: -->
+<!-- <a onclick="document.getElementById('errocpf').style.display='block';document.getElementById('cpf').style.borderColor='#ffb5b5'"><input type="button" class="form_botao" value=""  /></a> -->
+
+<!-- Bot&atilde;o com exemplo de erro no CEP: -->
+<!-- <a onclick="document.getElementById('errocep').style.display='block';document.getElementById('cep').style.borderColor='#ffb5b5'"><input type="button" class="form_botao" value=""  /></a> -->
+
+<!-- Bot&atilde;o com exemplo de erro no EMAIL: -->
+<!-- <a onclick="document.getElementById('erroemail').style.display='block';document.getElementById('email').style.borderColor='#ffb5b5'"><input type="button" class="form_botao" value=""  /></a> -->
+
+</form>
+</div><!-- /cadastro_01 -->
+
+</body>
+</html>
