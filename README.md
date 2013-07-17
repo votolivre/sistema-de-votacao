@@ -13,7 +13,7 @@ Os 5 passos para criar uma Iniciativa popular através da internet, utilizando o
 
    O Link acima está hospedado no site de compartilhamento de código GITHUB. Você precisa ter o programa GIT instalado no seu sistema e pode fazer o download de todo o código fonte do sistema utilizando o seguinte comando:
 
-    git clone https://github.com/votolivre/sistema-de-votacao.git
+       git clone https://github.com/votolivre/sistema-de-votacao.git
 
    É necessário ter conhecimentos de programação para instalar e para modificar o código para o seu uso. O código neste repositório é feito na linguagem Perl, com banco de dados MySQL, e está semelhante ao código que está sendo utilizado no site votolivre.org. É possível também sugerir e publicar melhorias e modificações, são muito bem vindas e serão revertidas para a comunidade.
 
